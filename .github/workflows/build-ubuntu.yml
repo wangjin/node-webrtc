@@ -20,7 +20,7 @@ jobs:
           cd cmake-3.12.4
           ./bootstrap
           make -j 4
-          make install
+          sudo make install
       - name: NodeJS Dependencies Install
         run: |
           npm install
