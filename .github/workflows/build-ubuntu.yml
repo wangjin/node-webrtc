@@ -21,16 +21,6 @@ jobs:
           ./bootstrap
           gmake -j 4
           gmake install
-      - name: Prepare Environment - Glibc 2.18
-        run: |
-          curl -O http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
-          tar zxf glibc-2.18.tar.gz
-          cd glibc-2.18
-          mkdir build
-          cd build
-          ../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
-          make -j 4
-          make install
       - name: NodeJS Dependencies Install
         run: |
           npm install
