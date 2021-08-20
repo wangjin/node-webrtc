@@ -9,18 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Prepare Environment - NodeJS
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-      - name: Prepare Environment - Cmake
-        run: |
-          curl -O https://cmake.org/files/v3.12/cmake-3.12.4.tar.gz
-          tar zxf cmake-3.12.4.tar.gz
-          cd cmake-3.12.4
-          ./bootstrap
-          make -j 4
-          sudo make install
       - name: NodeJS Dependencies Install
         run: |
           SKIP_DOWNLOAD=true npm install
@@ -28,7 +16,7 @@ jobs:
         run: |
           ./node_modules/.bin/ncmake rebuild -- -DGN_GEN_ARGS='proprietary_codecs=true ffmpeg_branding="Chrome"'
       - name: Upload Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: Node WebRTC Ubuntu
-          path: ./build/Release/wrtc.node
+          path: build/Release/wrtc.node
