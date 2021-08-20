@@ -1,11 +1,20 @@
 name: Build Node WebRTC with H264 on Ubuntu
-on: [push]
+on:
+  push:
+    branches:
+      - develop-ubuntu
 jobs:
   Build-Node-WebRTC-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      - name: Prepare Environment - Python 3.8
+        run: |
+          sudo apt update
+          sudo apt install software-properties-common
+          sudo add-apt-repository ppa:deadsnakes/ppa -y
+          sudo apt install python3.8
       - name: Prepare Environment - NodeJS
         run: |
           curl -O https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz
