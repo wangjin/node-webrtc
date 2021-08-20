@@ -19,8 +19,8 @@ jobs:
           tar zxf cmake-3.12.4.tar.gz
           cd cmake-3.12.4
           ./bootstrap
-          gmake -j 4
-          gmake install
+          make -j 4
+          make install
       - name: NodeJS Dependencies Install
         run: |
           npm install
