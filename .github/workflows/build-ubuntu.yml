@@ -1,4 +1,4 @@
-name: Build Node WebRTC with H264 on Ubuntu
+name: Build on Ubuntu
 on:
   push:
     branches:
@@ -11,10 +11,15 @@ jobs:
         uses: actions/checkout@master
       - name: Prepare Environment - Python 3.8
         run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo add-apt-repository ppa:deadsnakes/ppa -y
-          sudo apt install python3.8
+          # sudo apt update
+          # wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+          # tar -xf Python-3.8.0.tgz
+          # cd Python-3.8.0
+          # ./configure
+          # make -j 8
+          # sudo make altinstall
+          python -V
+          python3 -V
       - name: Prepare Environment - NodeJS
         run: |
           curl -O https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz
