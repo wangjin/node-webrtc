@@ -23,7 +23,7 @@ jobs:
           sudo make install
       - name: NodeJS Dependencies Install
         run: |
-          npm install
+          SKIP_DOWNLOAD=true npm install
       - name: Build Release
         run: |
           ./node_modules/.bin/ncmake rebuild -- -DGN_GEN_ARGS='proprietary_codecs=true ffmpeg_branding="Chrome"'
