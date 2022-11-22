@@ -321,6 +321,7 @@ target_include_directories(${MODULE} SYSTEM PRIVATE
   ${libwebrtc_source_dir}/webrtc
   ${libwebrtc_source_dir}/webrtc/third_party/abseil-cpp
   ${libwebrtc_source_dir}/webrtc/third_party/libyuv/include
+  ${libwebrtc_source_dir}/webrtc/build/linux/debian_sid_amd64-sysroot/usr/include/x86_64-linux-gnu/
 )
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
