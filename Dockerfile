@@ -1,8 +1,7 @@
 FROM centos:7
 RUN yum install -y openssl openssl-devel \
-&& yum groupinstall -y Development Tools \
 && curl -fsSL https://rpm.nodesource.com/setup_14.x | bash - \
-&& tar -xf node-v14.15.0-linux-x64.tar.xz \
+&& yum groupinstall -y Development Tools \
 && yum install -y nodejs \
 && curl -O https://cmake.org/files/v3.12/cmake-3.12.4.tar.gz \
 && tar zxf cmake-3.12.4.tar.gz \
