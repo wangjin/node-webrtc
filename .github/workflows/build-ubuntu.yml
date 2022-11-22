@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@master
       - name: Python Dependency
         run: |
-          apt-get install -y python2
+          sudo apt-get install -y python2
           ln -s /usr/bin/python2 /usr/bin/python
       - name: NodeJS Dependencies Install
         run: |
