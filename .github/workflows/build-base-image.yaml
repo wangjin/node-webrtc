@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "develop-base-image" ]
+  pull_request:
+    branches: [ "develop-base-images" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{scerets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build the Docker image
+      run: docker build -t $DOCKER_USER/develop-base-image:centos-7 . --file Dockerfile
+    - name: Push Docker image
+      run: docker push $DOCKER_USER/develop-base-image:centos-7
