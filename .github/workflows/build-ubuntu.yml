@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@master
       - name: Python Dependency
         run: |
-          ls /usr/bin/python
-          ls /usr/bin/python2
-          rm -rf /usr/bin/python
-          ln -s /usr/bin/python2 /usr/bin/python
+          /usr/bin/python -V
+          /usr/bin/python2 -V
+          sudo rm -rf /usr/bin/python
+          sudo ln -s /usr/bin/python2 /usr/bin/python
       - name: NodeJS Dependencies Install
         run: |
           SKIP_DOWNLOAD=true npm install
