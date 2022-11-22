@@ -1,12 +1,9 @@
 FROM centos:7
 RUN yum install -y openssl openssl-devel \
 && yum groupinstall -y Development Tools \
-&& curl -O https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz \
+&& curl -fsSL https://rpm.nodesource.com/setup_14.x | sudo bash - \
 && tar -xf node-v14.15.0-linux-x64.tar.xz \
-&& cd node-v14.15.0-linux-x64/bin && ls \
-&& ln -s /__w/node-webrtc/node-webrtc/node-v14.15.0-linux-x64/bin/node /usr/bin/node \
-&& ln -s /__w/node-webrtc/node-webrtc/node-v14.15.0-linux-x64/bin/npm /usr/bin/npm \
-&& cd .. \
+&& yum install -y nodejs \
 && curl -O https://cmake.org/files/v3.12/cmake-3.12.4.tar.gz \
 && tar zxf cmake-3.12.4.tar.gz \
 && cd cmake-3.12.4 \
